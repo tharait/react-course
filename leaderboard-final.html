@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Leaderboard</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #leaderboard {
+            width: auto;
+            margin: 0 auto;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: indigo;
+        }
+
+        .player {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            background-color: aliceblue;
+            padding: 0.5rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .num {
+            width: 3rem;
+            text-align: left;
+        }
+
+        .name {
+            width: 20rem;
+            text-overflow: ellipsis;
+        }
+
+        .speed {
+            width: 6rem;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="leaderboard"></div>
+    </div>
+
+    <script>
+        const source = new EventSource('http://localhost:8080/sse');
+
+        source.addEventListener('message', (event) => {
+            const leaderboard = document.getElementById('leaderboard');
+            const data = JSON.parse(event.data);
+            leaderboard.innerHTML = data.map((player, index) => `<div class="player"><div class="num">${index + 1}</div><div class="name">${player.name}</div><div class="speed">${player.speed} km/h</div></div>`).join('');
+        });
+    </script>
+</body>
+
+</html>
