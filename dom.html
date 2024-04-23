@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>Document Object Model (DOM)</h1>
+        <p id="para1">This is a paragraph</p>
+
+        <script>
+            // An object has properties and methods
+            let para = document.getElementById("para1");
+            para.style.color = "red";
+
+            let h2 = document.createElement("h2");
+            h2.innerText = "This is a heading";
+            document.body.appendChild(h2);
+        </script>
+    </body>
+</html>

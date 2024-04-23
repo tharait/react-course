@@ -2,4 +2,4 @@
  * This is a sample file only for testing purposes
  */
 
-let var1 = "Variable 1";
+alert("Loaded javascript from an external file");

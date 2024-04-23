@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+    My JavaScript experiments
+
+    <script>
+        let num1 = 10;
+        let num2 = 20;
+
+        // General function definition
+        function add(a, b) {
+            return a + b;
+        }
+
+        let sum = add(num1, num2);
+        console.log(sum);
+
+        // Function expression
+        let substract = function(a, b) {
+            return a - b;
+        }
+
+        let result = substract(num1, num2);
+        console.log(result);
+
+        // Arrow function with one statement
+        let multiplyOneLine = (a, b) =>  a * b;
+        let product1 = multiplyOneLine(num1, num2);
+        console.log(product1);
+
+        // Arrow function with multiple statements
+        let multiplyMultiLines = (a, b) => {
+            let product = a * b;
+            product = product + 10;
+            return product;
+        }
+        let product2 = multiplyMultiLines(num1, num2);
+        console.log(product2);
+
+        // Non returning function
+        function printNiceMessage() {
+            console.log("Nice message");
+        }
+
+        printNiceMessage();
+    </script>
+</body>
+
+</html>
