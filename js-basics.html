@@ -10,17 +10,11 @@
 
     <script>
         // boolean conversion
-        0 === false; // true
+        0 === false; // false
         1 === true; // false
         0 == false; // true
         1 == true; // true
         "" == false; // true
-
-        // string conversion
-        0 + ""; // "0"
-        1 + ""; // "1"
-        0 == ""; // true
-        1 == ""; // false
 
         // create an object
         let person = {
@@ -80,7 +74,7 @@
         // ?? operator
         let result2 = age ?? 10;
 
-        // add EventListener with anonymous function
+        // add EventListener with arrow function
         document.addEventListener("click", () => {
             console.log("Clicked");
         });

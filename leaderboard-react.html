@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaderboard</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #leaderboard {
+            width: auto;
+            margin: 0 auto;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: indigo;
+        }
+
+        .player {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            background-color: aliceblue;
+            padding: 0.5rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .num {
+            width: 3rem;
+            text-align: left;
+        }
+
+        .name {
+            width: 20rem;
+            text-overflow: ellipsis;
+        }
+
+        .speed {
+            width: 6rem;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="title">Leaderboard</h1>
+        <div id="leaderboard"></div>
+    </div>
+
+     <!-- load react -->
+     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+ 
+     <!-- load babel: babel transpiles JSX into JS -->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     
+    <script type="text/babel">
+        let leaderboard = document.getElementById('leaderboard');
+
+        function Leaderboard() {
+            const players = [
+                { rank: 1, name: 'John', speed: 100 },
+                { rank: 2, name: 'Jane', speed: 200 },
+                { rank: 3, name: 'Jim', speed: 300 }
+            ]
+
+            return (
+                <>
+                   {
+                       players.map((player, index) => <Player rank={index + 1} name={player.name} speed={player.speed} />)
+                   } 
+                </>
+            );
+        }
+
+        function Player({ rank, name, speed }) {
+            return (
+                <>
+                    <div class="player">
+                        <div class="num">{rank}</div>
+                        <div class="name">{name}</div>
+                        <div class="speed">{speed} km/h</div>
+                    </div>
+                </>
+            );
+        }
+
+        const holder = document.getElementById('leaderboard');
+        const app = ReactDOM.createRoot(holder);
+        app.render(<Leaderboard />);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- js-basics.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    My JavaScript experiments
+    <button id="btn">Click Me</button>
+</body>
+
+<script>
+   const btn = document.getElementById("btn");
+   //btn.addEventListener("click", handleButtonClick); // declare the function. Method is called when the button is clicked
+   //btn.addEventListener("click", handleButtonClick()); // call the function. Method is called even before the button is clicked
+   btn.addEventListener("click", function() { handleButtonClick() ; }); // anonymous function. Method is called when the button is clicked
+   btn.addEventListener("click", () => { handleButtonClick() ; }); // arrow function. Method is called when the button is clicked
+
+
+   function handleButtonClick() {
+       alert("Button clicked");
+   }
+
+   // equality check
+   console.log('0 === false', 0 === false);
+   console.log('1 === true', 1 === true);
+   console.log('1 == true', 1 == true);
+   console.log('0 == false', 0 == false);
+   console.log('"" == false', "" == false);
+</script>
+
+</html>

@@ -15,23 +15,60 @@
     <!-- load react -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    
+
     <!-- load babel: babel transpiles JSX into JS -->
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
 
-        // create a react component
         function App() {
             return (
-                <h1>Hello World</h1>
+                <>
+                <SearchBox buttonLabel="Search" query="React">
+                    <p>This is a paragraph</p>
+                </SearchBox>
+                <SearchBox2 buttonLabel="Search" query="React">
+                    <p>This is a paragraph</p>
+                </SearchBox2>
+                </>
             );
         }
 
-        // render it
-        const domNode = document.getElementById('app');
-        const root = ReactDOM.createRoot(domNode);
+        function SearchBox(props) {
+            return (
+                <>
+                    <input type="text" value={props.query} />
+                    <button type="submit">{props.buttonLabel}</button>
+                    {props.children}
+                </>
+            );
+        }
+
+        function SearchBox2({ query, buttonLabel, children }) {
+            return (
+                <div>
+                    <input type="text" value={query} />
+                    <button type="submit">{buttonLabel}</button>
+                    {children}
+                </div>
+            );
+        }
+
+        const app = document.getElementById('app');
+        // ReactDOM.render(<App />, app); // old method of rendering
+
+        const root = ReactDOM.createRoot(app); // new method of rendering
         root.render(<App />);
+
+
+        /*
+        * React component rules
+        * 1. Must start with an uppercase letter
+        * 2. Must return a single react element or a tree of elements
+        * 3. Returned element tree must be wrapped in a parent element
+        * 4. An component can have a single property object
+        * 5. A JSX element must close with a /> or a closing tag
+        * */
     </script>
 </body>
 
