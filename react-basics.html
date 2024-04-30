@@ -1,0 +1,38 @@
+<!-- js-basics.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>React Basics</title>
+</head>
+
+<body>
+    <h1>React Basics</h1>
+
+    <!-- React App is painted inside this element -->
+    <div id="app"></div>
+
+    <!-- load react -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- load babel: babel transpiles JSX into JS -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        // create a react component
+        function App() {
+            return (
+                <h1>Hello World</h1>
+            );
+        }
+
+        // render it
+        const domNode = document.getElementById('app');
+        const root = ReactDOM.createRoot(domNode);
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

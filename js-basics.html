@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript Basics</title>
+</head>
+
+<body>
+    <h1>JavaScript Basics</h1>
+
+    <script>
+        // boolean conversion
+        0 === false; // true
+        1 === true; // false
+        0 == false; // true
+        1 == true; // true
+        "" == false; // true
+
+        // string conversion
+        0 + ""; // "0"
+        1 + ""; // "1"
+        0 == ""; // true
+        1 == ""; // false
+
+        // create an object
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+
+        // access object properties
+        let x = person.firstName;
+        let y = person["firstName"];
+        let z = person.lastName;
+        let a = person["lastName"];
+
+        // create an array
+        let cars = ["Saab", "Volvo", "BMW"];
+
+        // access array elements
+        let b = cars[0];
+        let c = cars[1];
+        let d = cars[2];
+
+        // create a function that return a value
+        function myFunction(no1, no2) {
+            let sum = no1 + no2;
+            return sum;
+        }
+
+        // call a function with arguments
+        let e = myFunction(10, 20);
+
+        // create a function that does not return a value
+        function myFunction2() {
+            console.log("Hello World");
+        }
+
+        // object destructuring
+        let { firstName, age } = person;
+
+        // array destructuring
+        let [car1, car2, car3] = cars;
+
+        // spread operator with arrays
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        let arr3 = [...arr1, ...arr2];
+
+        // spread operator with objects
+        let obj1 = { a: 1, b: 2 };
+        let obj2 = { c: 3, d: 4 };
+        let obj3 = { ...obj1, ...obj2 };
+
+        // ternary operator
+        let result = age > 30 ? "Old" : "Young";
+
+        // ?? operator
+        let result2 = age ?? 10;
+
+        // add EventListener with anonymous function
+        document.addEventListener("click", () => {
+            console.log("Clicked");
+        });
+
+        // add EventListener with named function
+        function myFunction3() {
+            console.log("Clicked");
+        }
+        document.addEventListener("click", myFunction3);
+    </script>
+</body>
+
+</html>
